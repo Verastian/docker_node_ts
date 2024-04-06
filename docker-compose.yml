@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # servicio
+  node_service_prod:
+    container_name: node_service_prod
+    # Interaccion con Dockerfile
+    build:
+      # buscar fichero de Dockerfile desde la raiz
+      target: prod
+      context: .
+      args:
+        - PORT=${PORT:-3000}
+    ports:
+      # mapear el puerto 3000 al puerto 3000 del contenedor 
+      - "${PORT:-3000}:${PORT:-3000}"
+
+  node_service_dev:
+    container_name: node_service_dev
+    restart: unless-stopped
+    env_file: .env
+    # Interaccion con Dockerfile
+    build:
+      # buscar fichero de Dockerfile desde la raiz
+      target: dev
+      context: .
+      args:
+        - PORT=${PORT:-3000}
+    ports:
+      # mapear el puerto 3000 al puerto 3000 del contenedor 
+      - "${PORT:-3000}:${PORT:-3000}"
+      - "9229:9229"
+    volumes:
+      - .:/app
