@@ -71,14 +71,14 @@ bashCopy code
 ```bash
 ├──📁src
 │ └──📁config
-│ └──📄 config.ts
-│ └──📄 load.ts
+│     └──📄 config.ts
+│     └──📄 load.ts
 │ └──📁controllers
-│ └──📄 user.controller.ts
+│     └──📄 user.controller.ts
 │ └──📁routes
-│ └──📄 user.route.ts
+│     └──📄 user.route.ts
 │ └──📁models
-│ └──📄 server.models.ts
+│     └──📄 server.models.ts
 │ └──📄 app.ts
 │
 ├──📄 .env.template
